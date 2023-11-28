@@ -1,10 +1,10 @@
-package org.java.spring.model;
+package org.java.spring.pojo;
 
-public class Song {
+public class Movie {
 	private int id;
 	private String titolo;
 	
-	public Song(int id, String titolo ) {
+	public Movie(int id, String titolo ) {
 		setId(id);
 		setTitolo(titolo);
 	}
