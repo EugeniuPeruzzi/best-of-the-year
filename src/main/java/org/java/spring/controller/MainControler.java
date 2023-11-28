@@ -9,6 +9,7 @@ import org.java.spring.pojo.Song;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class MainControler {
@@ -44,8 +45,6 @@ public class MainControler {
 	    return movies;
 	}
 
-	
-	
 	//passaggio di una variabile al html
 	@GetMapping("/")
 	public String myName(Model model) {
@@ -56,36 +55,78 @@ public class MainControler {
 		return "index";
 	}
 	
-//	@GetMapping("/song")
-//	public String songsRoute(Model model) {
-//	    List<Song> songsList = getBestSong();
-//	    StringBuilder songTitles = new StringBuilder();
-//	    for (Song song : songsList) {
-//	        if (songTitles.length() > 0) {
-//	            songTitles.append(", ");
-//	        }
-//	        songTitles.append(song.getTitolo());
-//	    }
-//	    model.addAttribute("canzoni", songTitles.toString());
-//	    return "index_song";
-//	}
 	
 	@GetMapping("/song")
 	public String songsRoute(Model model) {
 	    List<Song> songsList = getBestSong();
-	    String songTitles = songsList.stream().map(Song::getTitolo).collect(Collectors.joining(", "));
+	    StringBuilder songTitles = new StringBuilder();
+	    for (Song song : songsList) {
+	        songTitles.append(song.getTitolo());
+	        songTitles.append(", ");
+	    }
 	    model.addAttribute("canzoni", songTitles);
 	    return "Song";
 	}
 	
-	
 	@GetMapping("/movie")
-	public String moviesRoute(Model model) {
+	public String movieRoute(Model model) {
 	    List<Movie> moviesList = getBestMovies();
-	    String movieTitles = moviesList.stream()
-	        .map(Movie::getTitolo)
-	        .collect(Collectors.joining(", "));
+	    StringBuilder movieTitles = new StringBuilder();
+	    for (Movie movie : moviesList) {
+	    	movieTitles.append(movie.getTitolo());
+	    	movieTitles.append(", ");
+	    }
 	    model.addAttribute("film", movieTitles);
 	    return "Movie";
 	}
+	
+	@GetMapping("/song/{id}")
+	public String songsRouteId(Model model,
+			@PathVariable int id) {
+	    List<Song> songsList = getBestSong();
+	    StringBuilder songTitles = new StringBuilder();
+	    for (Song song : songsList) {
+	        if(song.getId() == id) {
+	        	songTitles.append(song.getTitolo());
+	        }
+	    }
+	    model.addAttribute("canzone", songTitles);
+	    return "SongId";
+	}
+	
+	@GetMapping("/movie/{id}")
+	public String movieRouteId(Model model,
+			@PathVariable int id) {
+	    List<Movie> moviesList = getBestMovies();
+	    StringBuilder movieTitles = new StringBuilder();
+	    for (Movie movie : moviesList) {
+	        if(movie.getId() == id) {
+	        	movieTitles.append(movie.getTitolo());
+	        }
+	    }
+	    model.addAttribute("film", movieTitles);
+	    return "MovieId";
+	}
+	
+//	@GetMapping("/song")
+//	public String songsRoute(Model model) {
+//	    List<Song> songsList = getBestSong();
+//	    String songTitles = songsList.stream()
+//	    		.map(Song::getTitolo)
+//	    		.collect(Collectors.joining(", "));
+//	    model.addAttribute("canzoni", songTitles);
+//	    return "Song";
+//	}
+	
+	
+//	@GetMapping("/movie")
+//	public String moviesRoute(Model model) {
+//	    List<Movie> moviesList = getBestMovies();
+//	    String movieTitles = moviesList.stream()
+//	        .map(Movie::getTitolo)
+//	        .collect(Collectors.joining(", "));
+//	    model.addAttribute("film", movieTitles);
+//	    return "Movie";
+//	}
+	
 }

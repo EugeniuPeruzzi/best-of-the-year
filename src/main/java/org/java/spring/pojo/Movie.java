@@ -23,4 +23,10 @@ public class Movie {
 	}
 	
 	
+//	@Override
+//	public String toString() {
+//	    return "Song id=" + id + ", titolo=" + titolo;
+//	}
+	
+	
 }

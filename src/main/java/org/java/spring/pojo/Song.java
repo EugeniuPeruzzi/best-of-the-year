@@ -22,9 +22,9 @@ public class Song {
 		this.titolo = titolo;
 	}
 	
-	@Override
-	public String toString() {
-	    return "Song id=" + id + ", titolo=" + titolo;
-	}
-	
+//	@Override
+//	public String toString() {
+//	    return "Song id=" + id + ", titolo=" + titolo;
+//	}
+//	
 }
