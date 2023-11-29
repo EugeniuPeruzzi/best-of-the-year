@@ -58,25 +58,25 @@ public class MainControler {
 	
 	@GetMapping("/song")
 	public String songsRoute(Model model) {
-	    List<Song> songsList = getBestSong();
-	    StringBuilder songTitles = new StringBuilder();
-	    for (Song song : songsList) {
-	        songTitles.append(song.getTitolo());
-	        songTitles.append(", ");
-	    }
-	    model.addAttribute("canzoni", songTitles);
+//	    List<Song> songsList = getBestSong();
+//	    StringBuilder songTitles = new StringBuilder();
+//	    for (Song song : songsList) {
+//	        songTitles.append(song.getTitolo());
+//	        songTitles.append(", ");
+//	    }
+	    model.addAttribute("songsList", getBestSong());
 	    return "Song";
 	}
 	
 	@GetMapping("/movie")
 	public String movieRoute(Model model) {
-	    List<Movie> moviesList = getBestMovies();
-	    StringBuilder movieTitles = new StringBuilder();
-	    for (Movie movie : moviesList) {
-	    	movieTitles.append(movie.getTitolo());
-	    	movieTitles.append(", ");
-	    }
-	    model.addAttribute("film", movieTitles);
+//	    List<Movie> moviesList = getBestMovies();
+//	    StringBuilder movieTitles = new StringBuilder();
+//	    for (Movie movie : moviesList) {
+//	    	movieTitles.append(movie.getTitolo());
+//	    	movieTitles.append(", ");
+//	    }
+	    model.addAttribute("moviesList", getBestMovies());
 	    return "Movie";
 	}
 	

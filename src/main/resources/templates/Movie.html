@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
+<html lang="en">
+<!-- head -->
+<div th:replace="index :: headFragment"></div>
+
 <body>
-	<h1>Best Movie...</h1>
-	<h2>[[${film}]]</h2>
-	<a href="/song">Vai alle canzoni</a>
+	<!-- Header -->
+	<div th:replace="index :: headerFragment"></div>
+
+	<!-- Main -->
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<h1>Best Movies...</h1>
+					<table class="mx-auto mt-5 text-center">
+						<thead>
+							<tr>
+								<th>Title</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="movie : ${moviesList}">
+								<td th:text="${movie.titolo}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
 
 </body>
+
 </html>
