@@ -9,6 +9,7 @@
 	<!-- Header -->
 	<div th:replace="index :: headerFragment"></div>
 
+
 	<!-- Main -->
 	<main>
 		<div class="container">
@@ -23,7 +24,9 @@
 						</thead>
 						<tbody>
 							<tr th:each="song : ${songsList}">
-								<td th:text="${song.titolo}"></td>
+								<td>
+									<a th:href="@{/song/{id}(id=${song.id})}" th:text="${song.titolo}"></a>
+								</td>
 							</tr>
 						</tbody>
 					</table>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
-</head>
+<html lang="en">
+<!-- head -->
+<div th:replace="index :: headFragment"></div>
 
 <body>
+	<!-- Header -->
+	<div th:replace="index :: headerFragment"></div>
+
 	<h1>Titolo</h1>
 	<h2>[[${film}]]</h2>
 </body>

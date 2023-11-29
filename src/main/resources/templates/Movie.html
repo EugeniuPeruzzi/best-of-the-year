@@ -12,7 +12,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
-					<h1>Best Movies...</h1>
+					<h1>Best Songs...</h1>
 					<table class="mx-auto mt-5 text-center">
 						<thead>
 							<tr>
@@ -21,7 +21,9 @@
 						</thead>
 						<tbody>
 							<tr th:each="movie : ${moviesList}">
-								<td th:text="${movie.titolo}"></td>
+								<td>
+									<a th:href="@{/movie/{id}(id=${movie.id})}" th:text="${movie.titolo}"></a>
+								</td>
 							</tr>
 						</tbody>
 					</table>
