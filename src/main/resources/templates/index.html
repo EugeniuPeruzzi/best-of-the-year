@@ -1,16 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-	<meta charset="ISO-8859-1">
-	<title>Best of the year</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap CSS -->
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}" />
+	<title>Document</title>
 </head>
 
 <body>
-	<h1>Best of the year by ... [[${username}]]</h1>
-	<a href="/song">Vai alle canzoni</a>
-	<a href="/movie">Vai ai film</a>
-
+	
+	<header th:fragment="headerFragment">
+		<div class="d-flex align-items-center text-center">
+			<div class="text-center">
+				<h1>Best of </h1>
+			</div>
+			<div class="d-flex justify-content-center ms-5">
+				<a href="/song" class="btn btn-primary">Song</a>
+				<a href="/movie" class="btn btn-primary ms-4">Movies</a>
+			</div>
+		</div>
+	</header>
+		
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h1 class="text-center mt-5">Best of by ... [[${username}]]</h1>
+				</div>
+				<div class="col-12 d-flex align-items-center flex-column">
+					<img th:src="@{https://picsum.photos/1000/700}" alt="lorem picsum" class="my-5">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque deserunt, vel explicabo, ut natus
+						ullam cumque sapiente, quidem numquam placeat inventore corporis deleniti maxime consectetur
+						quas itaque temporibus debitis obcaecati?Lorem ipsum dolor sit amet, consectetur adipisicing
+						elit. Quod minus assumenda inventore amet accusantium nam natus atque alias maiores minima,
+						doloremque esse saepe fugit sint debitis quisquam doloribus blanditiis velit?</p>
+				</div>
+			</div>
+		</div>
+	</main>
 </body>
 
 </html>
